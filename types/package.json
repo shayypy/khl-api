@@ -1,0 +1,16 @@
+{
+  "name": "khl-api-types",
+  "version": "1.0.0",
+  "description": "Types for the internal KHL API",
+  "main": "index.ts",
+  "author": {
+    "name": "shay",
+    "url": "https://shay.cat"
+  },
+  "repository": "https://github.com/shayypy/khl-api/tree/main/types",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "@biomejs/biome": "^1.4.1"
+  }
+}

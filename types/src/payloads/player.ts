@@ -9,7 +9,7 @@ export enum Role {
   // a `McPlayer` (Mastercard Player) class which has many outdated properties.
   Defenseman = "defensemen",
   // Defender = "defender",
-};
+}
 
 export enum Stick {
   Left = "l",

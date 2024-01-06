@@ -1,7 +1,7 @@
 export enum StageType {
   Regular = "regular",
   Playoff = "playoff",
-};
+}
 
 export const SEASON_RE = /\d\d(\d\d)\/\d\d(\d\d)/;
 

@@ -10,6 +10,8 @@ Prefix all below endpoints with one of these, depending on the data you want.
 - WHL: `https://khl.api.webcaster.pro/api/whl_mobile`
 - MHL: `https://khl.api.webcaster.pro/api/mhl_mobile`
 
+All of the above may also be substituted with `_site` in place of `_mobile`, but you should avoid doing so since there is little evidence of it being supported as widely.
+
 ## Common query parameters
 
 These parameters are used by the apps for almost all requests.
@@ -35,13 +37,13 @@ The apps also include a setting to configure which stage you would like to view 
 
 ## IDs
 
-Models tend to come with two IDs: `id` and `khl_id`. Both are integers but they are not interchangeable. `id` values can be used within the mobile API for referencing and querying objects, but `khl_id` values are mostly useful for constructing `khl.ru`/`whl.khl.ru`/`mhl.khl.ru` webpage URLs. This property is named `khl_id` for all leagues. Phrases like "event ID" or "team ID" should be assumed to refer to those models' `id` property.
+Models tend to come with two IDs: `id` and `khl_id`. Both are integers (although `khl_id` is a Java `long` rather than an `int`) but they are not interchangeable. `id` values can be used within the mobile API for referencing and querying objects, but `khl_id` values are mostly useful for constructing `khl.ru`/`whl.khl.ru`/`mhl.khl.ru` webpage URLs. This property is named `khl_id` for all leagues. Phrases like "event ID" or "team ID" should be assumed to refer to those models' `id` property.
 
 ## Common Data
 
 ### Get Common Data
 
-`GET /data.json`
+`GET /data.json` ([APICommonData](/types/src/payloads/data.ts))
 
 This endpoint returns various "init"-type data you might need for a stateful application.
 
@@ -51,7 +53,7 @@ The "event" terminology is not exclusive to full games, so you may find it neces
 
 ### Get Event
 
-`GET /event_v2.json?id={id}`
+`GET /event_v2.json?id={id}` ([RESTGetAPIEvent](/types/src/rest/event.ts))
 
 #### Query Parameters
 
@@ -65,7 +67,7 @@ Only `id` is required.
 
 ### Get Events
 
-`GET /events_v2.json`
+`GET /events_v2.json` ([RESTGetAPIEvents](/types/src/rest/event.ts))
 
 #### Query Parameters
 
@@ -86,7 +88,7 @@ All are optional. With no parameters, this endpoint will give you the next 16 ga
 
 ### Get Team
 
-`GET /team_v2.json?id={id}`
+`GET /team_v2.json?id={id}` ([RESTGetAPITeam](/types/src/rest/team.ts))
 
 #### Query Parameters
 
@@ -99,7 +101,7 @@ Only `id` is required.
 
 ### Get Teams
 
-`GET /teams_v2.json`
+`GET /teams_v2.json` ([RESTGetAPITeams](/types/src/rest/team.ts))
 
 #### Query Parameters
 

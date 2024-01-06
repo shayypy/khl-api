@@ -99,7 +99,7 @@ export const Routes = {
    * Route for:
    * - GET /events_alloc.json
    */
-  eventsAlloc() {
+  eventsAllocation() {
     return "/events_alloc.json" as const;
   },
 
@@ -115,7 +115,7 @@ export const Routes = {
    * Route for:
    * - GET /feed_alloc.json
    */
-  feedAlloc() {
+  feedAllocation() {
     return "/feed_alloc.json" as const;
   },
 

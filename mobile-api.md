@@ -110,3 +110,30 @@ All are optional.
 | name       | description         |
 |------------|---------------------|
 | `stage_id` | [Stage ID](#stages) |
+
+## Players
+
+### Get Players
+
+`GET /players_v2.json` ([RESTGetAPIPlayers](/types/src/rest/player.ts))
+
+#### Query Parameters
+
+| name         | description                                                          |
+|--------------|----------------------------------------------------------------------|
+| `q[id_in][]` | The ID of a specific player. Specify multiple times for more players |
+| `stage_id`   | [Stage ID](#stages)                                                  |
+
+### Get Players (light)
+
+`GET /players_v2_light.json` ([RESTGetAPIPlayersLight](/types/src/rest/player.ts))
+
+This is the same as [Get Players](#get-players) but it returns less data per player, and it is not wrapped. Additionally, while the `q[id_in][]` parameter does work as expected, it is not used by the apps, so use it with caution.
+
+#### Query Parameters
+
+| name           | description                                                          |
+|----------------|----------------------------------------------------------------------|
+| `q[id_in][]`   | The ID of a specific player. Specify multiple times for more players |
+| `ignore_stage` | Whether to ignore the `stage_id` parameter(?)                        |
+| `stage_id`     | [Stage ID](#stages)                                                  |

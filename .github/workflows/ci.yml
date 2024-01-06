@@ -1,0 +1,28 @@
+name: Publish to NPM
+
+on:
+  push:
+    branches: main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: biomejs/setup-biome@v1
+        with:
+          version: latest
+      - name: Run Biome
+        run: cd types && biome ci .
+  publish:
+    runs-on: ubuntu-latest
+    needs: [lint]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - uses: JS-DevTools/npm-publish@v3.0.1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          package: ./types/package.json

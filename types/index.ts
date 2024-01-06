@@ -1,3 +1,6 @@
+export * from "./src/payloads";
+export * from "./src/rest";
+
 /** Base API URL for all requests in every league */
 export const API_BASE = "https://khl.api.webcaster.pro/api";
 

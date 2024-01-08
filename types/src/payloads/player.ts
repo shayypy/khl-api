@@ -69,17 +69,18 @@ export interface APIPlayer extends Omit<APIMinimalPlayer, "g" | "a"> {
   team: APITeamWithDivision;
   stats: APIStat[];
   /** Teams the player has been with in the past, including their current team */
-  teams: Omit<
-    APITeamWithDivision,
-    "division" | "division_key" | "conference" | "conference_key"
-  > &
-    {
+  teams: Array<
+    Omit<
+      APITeamWithDivision,
+      "division" | "division_key" | "conference" | "conference_key"
+    > & {
       /**
        * The seasons when this player was on the team, comma-separated.
        * Example: `2021/2022,2022/2023`
        */
       seasons: string;
-    }[];
+    }
+  >;
   quotes: APIQuote[];
   seasons_count: {
     /** Seasons played for the current league. Always `khl`, even for other leagues */
